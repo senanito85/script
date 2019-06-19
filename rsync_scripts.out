@@ -1,0 +1,26 @@
+[root@hostname rsync]# cat rsync_wso2_bins_tmp.sh
+rsync --delete -avzhe  ssh root@4.4.4.4:/u01/app/tomcat/webapps/ROOT/clientfiles /cmsbins/tomcat/webapps/ROOT
+rsync --exclude='logs' --exclude='clientfiles'  --delete -avzhe  ssh root@4.4.4.4:/u01/app/tomcat/webapps/ROOT /cmsbins/tomcat/webapps
+rsync --delete -avzhe  ssh root@4.4.4.4:/u01/app/phantomjs-2.1.1-linux-x86_64 /cmsbins/
+rsync  -avzhe  ssh root@10.4.4.204:/u01/wso2 /wso2bins/wso2
+
+[root@hostname rsync]# cat rsync_cms_bins_tmp.sh
+rsync --exclude='webapps' --exclude='logs' --delete -avzhe  ssh root@4.4.4.4:/u01/app/tomcat /cmsbins/
+rsync --delete -avzhe  ssh root@4.4.4.4:/u01/app/tomcat/webapps/ROOT/clientfiles /cmsbins/tomcat/webapps/ROOT
+rsync --exclude='logs' --exclude='clientfiles'  --delete -avzhe  ssh root@4.4.4.4:/u01/app/tomcat/webapps/ROOT /cmsbins/tomcat/webapps
+rsync --delete -avzhe  ssh root@4.4.4.4:/u01/app/phantomjs-2.1.1-linux-x86_64 /cmsbins/
+
+[root@hostname rsync]# cat rsync_jms_bins_tmp.sh
+rsync --exclude='webapps' --exclude='logs' --delete -avzhe  ssh root@4.4.4.2:/u01/app/tomcat /jms/
+rsync --delete -avzhe  ssh root@4.4.4.2:/u01/app/tomcat/webapps/ROOT/clientfiles /jms/tomcat/webapps/ROOT
+rsync --exclude='logs' --exclude='clientfiles'  --delete -avzhe  ssh root@4.4.4.2:/u01/app/tomcat/webapps/ROOT /jms/tomcat/webapps
+
+[root@localhost rsync]# cat rsycn_ebs_apps_tiers.sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin
+rsync --delete -avzhe  ssh root@4.4.4.5:/u01/app/applmgr/apps/apps_st/appl/  /u01/app/applmgr/apps/apps_st/appl/   >/tmp/appl_top_rsycn.out
+rsync --delete -avzhe  ssh root@4.4.4.5:/u01/app/applmgr/apps/tech_st /u01/app/applmgr/apps/  >/tmp/tech_st_rsync.out
+rsync --delete -avzhe  ssh root@4.4.4.5:/u01/app/applmgr/apps/apps_st/comn/clone  /u01/app/applmgr/apps/apps_st/comn/  >/tmp/clone_rsycn.out
+rsync --delete -avzhe  ssh root@4.4.4.5:/u01/app/applmgr/apps/apps_st/comn/java  /u01/app/applmgr/apps/apps_st/comn/  >/tmp/java_rsync.out
+rsync --delete -avzhe  ssh root@4.4.4.5:/u01/app/applmgr/apps/apps_st/comn/webapps  /u01/app/applmgr/apps/apps_st/comn/ >/tmp/webapps_rsync.out
+rsync --delete -avzhe  ssh root@4.4.4.5:/u01/app/applmgr/apps/apps_st/comn/util  /u01/app/applmgr/apps/apps_st/comn/  >/tmp/util_rsync.out
+
