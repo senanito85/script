@@ -19,7 +19,8 @@ find /u03/interface/outbound/finance/auspost/ -maxdepth 1 -mtime +365 -type f -e
 
 #find /u03/interface/inbound/finance/daily-banking/6909/  -maxdepth 1 -mtime +365 -type f -exec mv --verbose "{}" /u05/archive/inbound/finance/daily-banking/6909 >> /var/log/filearchivelogs.log \;
 
-
+#to Delete
+find /path/to/files/ -type f -name '*.jpg' -mtime +300 -exec rm {} \;
 
 
 
