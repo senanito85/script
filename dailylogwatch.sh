@@ -1,6 +1,10 @@
 #!/bin/bash
+
+#Send general system info
 logwatch --detail Low --mailto sibrahimov@ast.com --service all --range today
 
+#Send logs via mail.
+mailx -s "Logs From astrp01" -q /tmp/logfile.txt  sibrahimov@ast.com
 
 
 
